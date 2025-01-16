@@ -20,6 +20,16 @@ function App() {
     return dice
   }
 
+  function clickDice (id) {
+    setNumber((prev) => 
+      prev.map((d) => (
+        d.id === id
+        ? { ...d, isHeld: !d.isHeld}
+        : d
+      ))
+    )
+  }
+
   function reRoll () {
     setNumber(generateAllNewDice())
   }
@@ -28,7 +38,7 @@ function App() {
     <main>
       <div className='container'>
         {number.map((n) => (
-          <Die key={n.nanoid()} value={n.value}/>
+          <Die key={n.id} id={n.id} value={n.value} isHeld={n.isHeld} click={clickDice}/>
         ))}
       </div>
       <button className='roll-dice' onClick={reRoll}>Roll</button>

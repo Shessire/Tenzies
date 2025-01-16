@@ -1,6 +1,6 @@
-function Die ({ value }) {
+function Die ({ value, isHeld, click, id }) {
     return (
-        <button>
+        <button onClick={() => click(id)} style={{ backgroundColor: isHeld && "#59E391" }}>
             {value}
         </button>
     )
