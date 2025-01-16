@@ -19,6 +19,10 @@ function App() {
     return dice
   }
 
+  function reRoll () {
+    setNumber(generateAllNewDice())
+  }
+
   return (
     <main>
       <div className='container'>
@@ -26,6 +30,7 @@ function App() {
           <Die key={index} value={n}/>
         ))}
       </div>
+      <button className='roll-dice' onClick={reRoll}>Roll</button>
     </main>
   )
 }
