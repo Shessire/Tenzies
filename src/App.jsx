@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import './App.css'
 import Die from './components/Die'
 
 function App() {
+  const [number, setNumber] = useState(generateAllNewDice())
+
 
   function generateAllNewDice() {
     // return new Array(10)
@@ -19,16 +22,9 @@ function App() {
   return (
     <main>
       <div className='container'>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
+        {number.map((n, index) => (
+          <Die key={index} value={n}/>
+        ))}
       </div>
     </main>
   )
