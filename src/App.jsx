@@ -44,6 +44,10 @@ function App() {
     ))
   }
 
+
+  const gameWon = number.every(n => n.isHeld)
+    && number.every(n => n.value === number[0].value)
+
   return (
     <main>
       <h1 className='title'>Tenzies</h1>
@@ -59,7 +63,7 @@ function App() {
           />
         ))}
       </div>
-      <button className='roll-dice' onClick={reRoll}>Roll</button>
+      <button className='roll-dice' onClick={reRoll}>{gameWon ? "New Game" : "Roll"}</button>
     </main>
   )
 }
